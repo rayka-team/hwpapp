@@ -1,0 +1,110 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Main-HamyarWpApp</title>
+<meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+<script src="inc/js/jq.js"></script>
+<script src="inc/js/slide-menu.js"></script>
+<script src="inc/js/iscroll.js"></script>
+<link href="inc/css/layout.css?55556" rel="stylesheet" type="text/css"/>
+<link href="inc/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+<link href="inc/css/gride.css" rel="stylesheet" type="text/css"/>
+
+
+</head>
+<body id="main">
+
+
+
+
+
+
+
+
+<!-- Mobile Header START -->
+<div class="mobile-header">
+<ul class="clearfloat"><li class="m-menu"> <a><span class="menu-open"><i class="fa fa-bars fa-2x"></i></span><span class="menu-close"><i class="fa fa-bars fa-2x"></i></span></a> </li>
+<li><div id="minilogo"></div></li>
+<li class="search" data-link="search.htm"><i class="fa fa-search fa-2x"></i></li>
+<li class="notification" data-link="notification.htm"><i class="fa fa-bell fa-2x"></i></li>
+</ul>
+</div>
+<!-- Mobile Header END -->
+
+<div id="container-outer"> 
+
+<!-- Mobile Menu START -->
+<div class="mobile-menu"> 
+</div>
+<!-- Mobile Menu END -->
+<div class="mobile-menu-bg">
+<ul class="menuconent">
+<li><i class="fa fa-folder-open" data-link="main.htm"></i> پیشخوان</li>
+<li><i class="fa fa-folder-open"></i> قالب های رایگان</li>
+<li><i class="fa fa-folder-open"></i> پلاگین های رایگان</li>
+<li><i class="fa fa-folder-open"></i> کدهای وردپرس</li>
+<li><i class="fa fa-folder-open"></i> مقالات آموزشی</li>
+<li><i class="fa fa-shopping-cart"></i> رزرو رایگان &nbsp;<span>ویژه</span></li>
+
+<li data-link="about.htm"><i class="fa fa-tree"></i> درباره ما</li>
+<li data-link="contact.htm"><i class="fa fa-phone"></i> تماس با ما</li>
+</ul>
+
+
+</div>
+</div>
+<!-- Full Site Container Outer End -->
+
+
+<div id="header"></div>
+<div id="wrapper">
+	<div id="scroller">
+		<div id="pullDown">
+			<span class="pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+		</div>
+
+        
+        
+        
+	<div class="container">
+
+<div id="three-columns" class="grid-container">
+			<ul class="rig columns-3">
+
+
+			</ul>
+		</div>
+		
+		
+	</div>        
+        
+        
+		<div id="pullUp">
+			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+		</div>
+	</div>
+</div>
+
+
+
+
+
+<script src="inc/js/ext.js"></script>
+<script src="inc/js/loader.js"></script>
+
+
+
+<script>
+	// paging Function refresh
+    var query_cache = JSON.parse(localStorage.getItem('query_cache'));
+		query_cache.forEach(function(obj) { 
+		  $('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
+		 });
+</script>
+
+
+
+
+</body>
+</html>

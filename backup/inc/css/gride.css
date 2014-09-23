@@ -27,7 +27,7 @@ ul.rig li {
 	-moz-box-sizing: border-box;
 	-webkit-box-sizing: border-box;
 	min-height:200px;
-	background:url(../img/loading.gif) no-repeat center;
+	background:url(inc/img/loading.gif) no-repeat center;
 }
 ul.rig li img {
 	max-width: 100%;

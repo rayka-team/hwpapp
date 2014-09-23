@@ -6,6 +6,47 @@ margin: 0px;
 padding: 0px;
 -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Regular.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Regular.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Regular.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Kufi';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Bold.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Bold.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Bold.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabickufi/v5/DroidKufi-Bold.ttf) format('truetype');
+}
+
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 400;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Regular.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Regular.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Regular.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Regular.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Regular.ttf) format('truetype');
+}
+@font-face {
+  font-family: 'Droid Arabic Naskh';
+  font-style: normal;
+  font-weight: 700;
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Bold.eot);
+  src: url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Bold.eot?#iefix) format('embedded-opentype'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Bold.woff2) format('woff2'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Bold.woff) format('woff'),
+       url(//themes.googleusercontent.com/static/fonts/earlyaccess/droidarabicnaskh/v6/DroidNaskh-Bold.ttf) format('truetype');
+}
 
 
 @font-face {
@@ -650,73 +691,5 @@ input.holo[type='text'] {
 }
 input.holo[type='text']:hover, input.holo[type='text']:focus {
 	border:1px solid #06C;
-} 
-
-
-
-
-
-
-
-
-#Exitbody{
-	width:220px;
-	height:80px;
-	padding:28px 18px 8px 18px;
-	background:rgba(51,51,51,.95);
-	-webkit-border-radius: 10px;
-	-moz-border-radius: 10px;
-	border-radius: 10px;
-	border:1px solid #FFF;
-	font:16px rayka;
-	color:#FFF;
-	position:absolute;
-	top:50%;
-	left:50%;
-	margin:-60px 0 0 -130px;
-	text-align:right;
-	direction:rtl;
-	z-index:20000;
-	display:none;
-	}	
-	
-#Exitbody button{
-	font:20px rayka;
-	margin-top:15px;
-	background:#d33215;
-	color:#FFF;
-	border:0;
-    -webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	padding:2px 5px 2px 5px;
-	width:90px;
- 	text-align:center;
-	}
-	
-#disconect,#mojood,#logout,#sended,#copy,#invaled,#edits,#mojoodnist{
-	width:280px;
-	height:20px;
-	padding:5px 10px 5px 10px;
-	background:rgba(0,0,0,.90);
-	position:absolute;
-	left:50%;
-	margin:0 0 0 -150px;
-	bottom:70px;
-	z-index:99000;
-	-webkit-border-radius: 5px;
-	-moz-border-radius: 5px;
-	border-radius: 5px;
-	direction:rtl;
-	text-align:center;
-	color:#FFF;
-	line-height:20px;
-	font:14px rayka;
-	display:none;
-	}
-
-
-
-
-	
+} 	
 	

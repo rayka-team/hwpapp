@@ -16,43 +16,34 @@ var myScroll,
 	pullDownEl, pullDownOffset,
 	pullUpEl, pullUpOffset,
 	generatedCount = 0;
+	page=2;
 
 function pullDownAction () {
-	// Function refresh
-	
-	// paging Function refresh
-		/*var url = 'http://www.hamyarwp.com/?json=1';
+		var url = 'http://www.hamyarwp.com/?json=1';
 		$.getJSON(url, function (json) {
 		var rayka=json.posts;	
-			
-		rayka.forEach(function(obj) { 
-		//$('#thelist').append('<a href="rm.php?'+obj.id+'" data-pid="'+obj.id+'">'+obj.title+'</a><br>');
-		  $('#thelist').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
-			//$('#amir').html(obj.id);
-		
+		var dataToStore = JSON.stringify(rayka);
+        localStorage.setItem('query_cache', dataToStore);
+         var query_cache = JSON.parse(localStorage.getItem('query_cache'));
+		query_cache.forEach(function(obj) { 
+		  $('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });
-	myScroll.refresh();
-		});	*/	
-			
-myScroll.refresh();
+		 myScroll.refresh();
+		 page=1;
+		});
+
 }
 
 function pullUpAction () {
-	// paging Function refresh
-		/*var url = 'http://www.hamyarwp.com/?json=1';
+		var url = 'http://www.hamyarwp.com/?page='+page+'&json=1';
 		$.getJSON(url, function (json) {
 		var rayka=json.posts;	
-			
-		rayka.forEach(function(obj) { 
-		//$('#thelist').append('<a href="rm.php?'+obj.id+'" data-pid="'+obj.id+'">'+obj.title+'</a><br>');
-		  $('#thelist').append('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
-			//$('#amir').html(obj.id);
-		
+		rayka.forEach(function(obj) {
+		  $('ul.rig').append('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });
 		 myScroll.refresh();
-		
-		});	*/	
-myScroll.refresh();
+         page++;
+		});
 }
 
 function loaded() {

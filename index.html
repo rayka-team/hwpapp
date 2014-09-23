@@ -20,20 +20,9 @@
 
 
 <script>
-	// paging Function refresh
-		var url = 'http://www.hamyarwp.com/?json=1';
-		$.getJSON(url, function (json) {
-		var rayka=json.posts;	
-		var dataToStore = JSON.stringify(rayka);
-        localStorage.setItem('query_cache', dataToStore);
-		window.location.assign("main.htm");
-		});
-
-
-
-/*var timer=setTimeout(function(){
+var timer=setTimeout(function(){
 	window.location.assign("main.htm");
-	},5000);*/
+	},5000);
 </script>
 
 

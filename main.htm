@@ -20,7 +20,15 @@
 
 
 
+<style>
+ol.loading{
+	width:100%;
+	height:2000px;
+	background:url(inc/img/gg.gif) no-repeat top center;
+	display:none;
+	}
 
+</style>
 
 
 <!-- Mobile Header START -->
@@ -71,6 +79,7 @@
 
 <div id="three-columns" class="grid-container">
 			<ul class="rig columns-3">
+            <ol class="loading">22</ol>
 
 
 			</ul>
@@ -140,31 +149,30 @@ function goexit(){
 
 
 <script>
-	// paging Function refresh
-	function query_cache(){
-	}
        
 	   
 	   
 	   
-	   var query_cache=localStorage.getItem('query_cache');
+	   var query_cache=window.localStorage.getItem('query_cache');
 	   if(query_cache==""){
+		   $('.loading').show();
 		var url = 'http://www.hamyarwp.com/?json=1';
 		$.getJSON(url, function (json) {
+			$('.loading').hide();
 		var rayka=json.posts;	
 		var dataToStore = JSON.stringify(rayka);
-        localStorage.setItem('query_cache', dataToStore);
+        window.localStorage.setItem('query_cache', dataToStore);
 		
 		
-         var query_cache = JSON.parse(localStorage.getItem('query_cache'));
+         var query_cache = JSON.parse(window.localStorage.getItem('query_cache'));
 		query_cache.forEach(function(obj) { 
 		  $('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });
 		});
 	   }else{
-    var query_cache = JSON.parse(localStorage.getItem('query_cache'));
+    var query_cache = JSON.parse(window.localStorage.getItem('query_cache'));
 		query_cache.forEach(function(obj) { 
-		  $('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
+		$('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });
 		   
 		   }

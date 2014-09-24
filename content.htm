@@ -82,6 +82,15 @@
 .container h2{
 	margin:20px 20px 0 0;
 	}
+.img{
+	width:auto;
+	height:auto;
+	}
+
+.container{
+	font:14px yekan;
+	line-height:25px;
+	direction:rtl;}
 
 </style>
 
@@ -126,11 +135,10 @@
 
 
 <script>
-$('a').click(function(){ return false;});
+//$('a').click(function(){ return false;});
 var hjj=window.location.search;
-ss=hjj.split('?');
+var ss=hjj.split('?');
 
-//$('body').html(ss[1]);
 var url = 'http://www.hamyarwp.com/?p='+ss[1]+'&json=1';
 $.getJSON(url, function (json) {
 var rayka=json.post;	
@@ -138,10 +146,8 @@ var rayka=json.post;
 $('.container').append('<h2>'+rayka.title+'</h2>');
 $('.container').append('<div>'+rayka.content+'</div>');
 var dataToStore = JSON.stringify(json);
-
-window.localStorage.setItem("post"+ss[1],dataToStore); 
-
 });
+
 
 
 /*var postDetals=window.localStorage.getItem("post"+ss[1]);

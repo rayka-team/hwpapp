@@ -23,8 +23,8 @@ function pullDownAction () {
 		$.getJSON(url, function (json) {
 		var rayka=json.posts;	
 		var dataToStore = JSON.stringify(rayka);
-        localStorage.setItem('query_cache', dataToStore);
-         var query_cache = JSON.parse(localStorage.getItem('query_cache'));
+        window.localStorage.setItem('query_cache', dataToStore);
+         var query_cache = JSON.parse(window.localStorage.getItem('query_cache'));
 		query_cache.forEach(function(obj) { 
 		  $('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });

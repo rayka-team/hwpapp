@@ -154,7 +154,7 @@ function goexit(){
 	   
 	   
 	   var query_cache=window.localStorage.getItem('query_cache');
-	   if(query_cache==""){
+	   if(query_cache==null){
 		   $('.loading').show();
 		var url = 'http://www.hamyarwp.com/?json=1';
 		$.getJSON(url, function (json) {

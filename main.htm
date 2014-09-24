@@ -7,7 +7,7 @@
 <script src="inc/js/jq.js"></script>
 <script src="inc/js/slide-menu.js"></script>
 <script src="inc/js/iscroll.js"></script>
-<script src="inc/js/cordova.js"></script>
+<script src="cordova.js"></script>
 <link href="inc/css/layout.css?55556" rel="stylesheet" type="text/css"/>
 <link href="inc/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="inc/css/gride.css" rel="stylesheet" type="text/css"/>
@@ -154,7 +154,8 @@ function goexit(){
 	   
 	   
 	   var query_cache=window.localStorage.getItem('query_cache');
-	   if(query_cache==null){
+	    var first=window.localStorage.getItem('first');
+	   if(first!=='1'){
 		   $('.loading').show();
 		var url = 'http://www.hamyarwp.com/?json=1';
 		$.getJSON(url, function (json) {
@@ -162,7 +163,7 @@ function goexit(){
 		var rayka=json.posts;	
 		var dataToStore = JSON.stringify(rayka);
         window.localStorage.setItem('query_cache', dataToStore);
-		
+		window.localStorage.setItem('first','1');
 		
          var query_cache = JSON.parse(window.localStorage.getItem('query_cache'));
 		query_cache.forEach(function(obj) { 

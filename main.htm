@@ -41,13 +41,12 @@
 <!-- Mobile Menu END -->
 <div class="mobile-menu-bg">
 <ul class="menuconent">
-<li><i class="fa fa-folder-open" data-link="main.htm"></i> پیشخوان</li>
-<li><i class="fa fa-folder-open"></i> قالب های رایگان</li>
-<li><i class="fa fa-folder-open"></i> پلاگین های رایگان</li>
-<li><i class="fa fa-folder-open"></i> کدهای وردپرس</li>
-<li><i class="fa fa-folder-open"></i> مقالات آموزشی</li>
-<li><i class="fa fa-shopping-cart"></i> رزرو رایگان &nbsp;<span>ویژه</span></li>
-
+<li data-link="main.htm"><i class="fa fa-folder-open"></i> پیشخوان</li>
+<li data-link="archive.htm?4"><i class="fa fa-folder-open"></i> قالب های رایگان</li>
+<li data-link="archive.htm?5"><i class="fa fa-folder-open"></i> پلاگین های رایگان</li>
+<li data-link="archive.htm?6"><i class="fa fa-folder-open"></i> کدهای وردپرس</li>
+<li data-link="archive.htm?3092"><i class="fa fa-folder-open"></i> مقالات آموزشی</li>
+<li data-link="register.htm"><i class="fa fa-shopping-cart"></i> رزرو رایگان &nbsp;<span>ویژه</span></li>
 <li data-link="about.htm"><i class="fa fa-tree"></i> درباره ما</li>
 <li data-link="contact.htm"><i class="fa fa-phone"></i> تماس با ما</li>
 </ul>
@@ -115,6 +114,21 @@ function goexit(){
 	 console.log("in button");
      navigator.app.exitApp();
 	}
+	
+    document.addEventListener("deviceready", onDeviceReady, false);
+
+    function onDeviceReady() {
+        document.addEventListener("backbutton", onBackKeyDown, false);
+		document.addEventListener("menubutton", onMenuKeyDown, false);
+		document.addEventListener("searchbutton", onSearchKeyDown, false);
+    }
+
+   
+    function onBackKeyDown() {
+		$('#Exitbody').fadeIn("fast");
+	
+    }	
+	
 </script>
 
 

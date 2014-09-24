@@ -19,11 +19,11 @@ function location(links){
 	
 	
 	
-set_catch('notification','5');		
+/*set_catch('notification','5');		
 var notification = get_catch('notification');
 if(notification!==""){
 	$('.notification').html('<span>'+notification+'</span><i class="fa fa-bell fa-2x"></i>');
-	}
+	}*/
 //$('body').html(data);	
 
 
@@ -40,43 +40,6 @@ $('li[data-readmore]').click(function(){
 	});
 
 
-
-
-
-
-
-
-/* Light BOX ==================*/
-$('.skip').click(function(){$('#LightBox').fadeOut("fast");});
-/*==================================================================*/
-
-
-function newpost(){
-var url = 'http://localhost/wp/?json=1';
-$.getJSON(url, function (json) {
-var rayka=json.posts;	
-	
-rayka.forEach(function(obj) { 
-//$('#thelist').append('<a href="rm.php?'+obj.id+'" data-pid="'+obj.id+'">'+obj.title+'</a><br>');
-  //$('#thelist').append('<li><img src="'+obj.thumbnail+'"><h2>'+obj.title+'</h2></li>');
-	//$('#amir').html(obj.id);
-
- });
-
-});	
-	
-	}
-
-
-
-
-
-
-
-
-
-	
-	
 	
 });
 

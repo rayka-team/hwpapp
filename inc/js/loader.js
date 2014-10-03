@@ -25,8 +25,9 @@ function pullDownAction () {
 		var dataToStore = JSON.stringify(rayka);
         window.localStorage.setItem('query_cache', dataToStore);
          var query_cache = JSON.parse(window.localStorage.getItem('query_cache'));
+		 $('ul.rig').html('');
 		query_cache.forEach(function(obj) { 
-		  $('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
+		  $('ul.rig').append('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });
 		 myScroll.refresh();
 		 page=1;
@@ -58,39 +59,39 @@ function loaded() {
 		onRefresh: function () {
 			if (pullDownEl.className.match('loading')) {
 				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'جهت بروز رسانی پایین بکشید...';
 			} else if (pullUpEl.className.match('loading')) {
 				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'جهت بروز رسانی بالا بکشید...';
 			}
 		},
 		onScrollMove: function () {
 			if (this.y > 5 && !pullDownEl.className.match('flip')) {
 				pullDownEl.className = 'flip';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Release to refresh...';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'درحال بروزرسانی...';
 				this.minScrollY = 0;
 			} else if (this.y < 5 && pullDownEl.className.match('flip')) {
 				pullDownEl.className = '';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Pull down to refresh...';
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'جهت بروز رسانی بالا بکشید...';
 				this.minScrollY = -pullDownOffset;
 			} else if (this.y < (this.maxScrollY - 5) && !pullUpEl.className.match('flip')) {
 				pullUpEl.className = 'flip';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Release to refresh...';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'درحال بروزرسانی...';
 				this.maxScrollY = this.maxScrollY;
 			} else if (this.y > (this.maxScrollY + 5) && pullUpEl.className.match('flip')) {
 				pullUpEl.className = '';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Pull up to load more...';
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'جهت بروز رسانی بالا بکشید...';
 				this.maxScrollY = pullUpOffset;
 			}
 		},
 		onScrollEnd: function () {
 			if (pullDownEl.className.match('flip')) {
 				pullDownEl.className = 'loading';
-				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'Loading...';				
+				pullDownEl.querySelector('.pullDownLabel').innerHTML = 'درحال بروزرسانی...';				
 				pullDownAction();	// Execute custom function (ajax call?)
 			} else if (pullUpEl.className.match('flip')) {
 				pullUpEl.className = 'loading';
-				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'Loading...';				
+				pullUpEl.querySelector('.pullUpLabel').innerHTML = 'درحال بروزرسانی...';				
 				pullUpAction();	// Execute custom function (ajax call?)
 			}
 		}

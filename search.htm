@@ -63,7 +63,7 @@
 <li><div id="minilogo"></div></li>
 <li class="Back" data-link="main.htm"><i class="fa fa-chevron-left fa-2x"></i></li>
 <li class="search"><i class="fa fa-search fa-2x"></i></li>
-<li id="searchInput"><input type="text" class="holo"></li>
+<li id="searchInput"><input type="text" class="holo" id="serch"></li>
 </ul>
 </div>
 <!-- Mobile Header END -->
@@ -150,10 +150,10 @@ $('.search').click(function(){
 	  var url = 'http://www.hamyarwp.com/?s='+searchKey+'&page=1&json=1';
 	  $.getJSON(url, function (json) {
 	  var rayka=json.posts;	
-		  
+	  $('#thelist').html('');  
 	  rayka.forEach(function(obj) { 
 	  //$('#thelist').append('<a href="rm.php?'+obj.id+'" data-pid="'+obj.id+'">'+obj.title+'</a><br>');
-		$('#thelist').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"><h2>'+obj.title+'</h2></a></li>');
+		$('#thelist').append('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"><h2>'+obj.title+'</h2></a></li>');
 		  //$('#amir').html(obj.id);
 	  myScroll.refresh();
 	   });
@@ -162,6 +162,49 @@ $('.search').click(function(){
 	}
 	
 	});
+	
+	
+	
+	
+	
+	
+var wage = document.getElementById("serch");
+wage.addEventListener("keydown", function (e) {
+    if (e.keyCode === 13) {
+       $('#thelist').html('');  
+		$('#thelist').prepend('<li class="loading"></li>');
+	var searchKey = $('.holo').val();
+	if(searchKey!==""){
+	
+	  var url = 'http://www.hamyarwp.com/?s='+searchKey+'&page=1&json=1';
+	  $.getJSON(url, function (json) {
+	  var rayka=json.posts;	
+	  $('#thelist').html('');  
+	  rayka.forEach(function(obj) { 
+	  //$('#thelist').append('<a href="rm.php?'+obj.id+'" data-pid="'+obj.id+'">'+obj.title+'</a><br>');
+		$('#thelist').append('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"><h2>'+obj.title+'</h2></a></li>');
+		  //$('#amir').html(obj.id);
+	  myScroll.refresh();
+	   });
+	  
+	  });
+	}
+		   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+	   
+    }
+});	
+
+	
+	
+	
+	
 </script>
 
 

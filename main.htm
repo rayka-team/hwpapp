@@ -7,7 +7,7 @@
 <script src="inc/js/jq.js"></script>
 <script src="inc/js/slide-menu.js"></script>
 <script src="inc/js/iscroll.js"></script>
-<script src="cordova.js"></script>
+<script src="inc/js/cordova.js"></script>
 <link href="inc/css/layout.css?55556" rel="stylesheet" type="text/css"/>
 <link href="inc/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
 <link href="inc/css/gride.css" rel="stylesheet" type="text/css"/>
@@ -34,7 +34,7 @@ ol.loading{
 <!-- Mobile Header START -->
 <div class="mobile-header">
 <ul class="clearfloat"><li class="m-menu"> <a><span class="menu-open"><i class="fa fa-bars fa-2x"></i></span><span class="menu-close"><i class="fa fa-bars fa-2x"></i></span></a> </li>
-<li><div id="minilogo"></div></li>
+<li><div id="minilogo" onClick="myScroll.scrollToElement('.rig li:nth-child(1)', 1000)"></div></li>
 <li class="search" data-link="search.htm"><i class="fa fa-search fa-2x"></i></li>
 <li class="notification" data-link="notification.htm"><i class="fa fa-bell fa-2x"></i></li>
 </ul>
@@ -49,14 +49,14 @@ ol.loading{
 <!-- Mobile Menu END -->
 <div class="mobile-menu-bg">
 <ul class="menuconent">
-<li data-link="main.htm"><i class="fa fa-folder-open"></i> پیشخوان</li>
-<li data-link="archive.htm?4"><i class="fa fa-folder-open"></i> قالب های رایگان</li>
-<li data-link="archive.htm?5"><i class="fa fa-folder-open"></i> پلاگین های رایگان</li>
-<li data-link="archive.htm?6"><i class="fa fa-folder-open"></i> کدهای وردپرس</li>
-<li data-link="archive.htm?3092"><i class="fa fa-folder-open"></i> مقالات آموزشی</li>
-<li data-link="register.htm"><i class="fa fa-shopping-cart"></i> رزرو رایگان &nbsp;<span>ویژه</span></li>
-<li data-link="about.htm"><i class="fa fa-tree"></i> درباره ما</li>
-<li data-link="contact.htm"><i class="fa fa-phone"></i> تماس با ما</li>
+<li data-link="main.htm"> صفحه اصلی</li>
+<li data-link="register.htm" class="s"> رزرو رایگان</li>
+<li data-link="archive.htm?4"> قالب های رایگان</li>
+<li data-link="archive.htm?5"> کدهای رایگان</li>
+<li data-link="archive.htm?6"> پلاگین های رایگان</li>
+<li data-link="archive.htm?3092"> مقالات آموزشی</li>
+<li data-link="about.htm"> درباره ما</li>
+<li data-link="contact.htm"> تماس با ما</li>
 </ul>
 
 
@@ -69,7 +69,7 @@ ol.loading{
 <div id="wrapper">
 	<div id="scroller">
 		<div id="pullDown">
-			<span class="pullDownIcon"></span><span class="pullDownLabel">Pull down to refresh...</span>
+			<span class="pullDownIcon"></span><span class="pullDownLabel">جهت بروز رسانی پایین بکشید...</span>
 		</div>
 
         
@@ -90,7 +90,7 @@ ol.loading{
         
         
 		<div id="pullUp">
-			<span class="pullUpIcon"></span><span class="pullUpLabel">Pull up to refresh...</span>
+			<span class="pullUpIcon"></span><span class="pullUpLabel">جهت بروز رسانی بالا بکشید...</span>
 		</div>
 	</div>
 </div>
@@ -154,8 +154,7 @@ function goexit(){
 	   
 	   
 	   var query_cache=window.localStorage.getItem('query_cache');
-	    var first=window.localStorage.getItem('first');
-	   if(first!=='1'){
+	   if(query_cache==""){
 		   $('.loading').show();
 		var url = 'http://www.hamyarwp.com/?json=1';
 		$.getJSON(url, function (json) {
@@ -163,17 +162,19 @@ function goexit(){
 		var rayka=json.posts;	
 		var dataToStore = JSON.stringify(rayka);
         window.localStorage.setItem('query_cache', dataToStore);
-		window.localStorage.setItem('first','1');
+		
 		
          var query_cache = JSON.parse(window.localStorage.getItem('query_cache'));
-		query_cache.forEach(function(obj) { 
-		  $('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
+		query_cache.forEach(function(obj) {
+			$('ul.rig').html(''); 
+		  $('ul.rig').append('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });
 		});
 	   }else{
     var query_cache = JSON.parse(window.localStorage.getItem('query_cache'));
+	$('ul.rig').html(''); 
 		query_cache.forEach(function(obj) { 
-		$('ul.rig').prepend('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
+		$('ul.rig').append('<li><a href="content.htm?'+obj.id+'"><img src="'+obj.thumbnail_images+'"></a></li>');
 		 });
 		   
 		   }
